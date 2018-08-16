@@ -1,0 +1,30 @@
+﻿@model ABSignV2.Sign
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        background-color: #17A2B8;
+        font-family: 'Baloo', cursive;
+    }
+</style>
+
+<h3>Details</h3>
+<div>
+    <hr />
+    <div class="dl-horizontal">
+        <div id="signNameDetail">
+            @Html.DisplayFor(model => model.SignName)
+        </div>
+        <div>
+            <img src="@Model.GetImageDataUri()" />
+        </div>
+    </div>
+    @if (Model.AdminUpload == false)
+    {
+        @Html.ActionLink("Add image for sign", "Create", "Images", new { id = Model.SignID }, null)
+    }
+</div>
+<br />
+@Html.ActionLink("Back to List", "Index")
